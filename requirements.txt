@@ -4,6 +4,6 @@ pandas
 pydantic
 tensorflow
 uvicorn
-h5py==2.10.0
+h5py
 python-multipart
 csv
