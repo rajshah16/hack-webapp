@@ -3,6 +3,7 @@ from fastapi import FastAPI, Form
 import pandas as pd
 import tensorflow as tf
 import csv
+from starlette.responses import HTMLResponse
 
 app = FastAPI()
 
@@ -45,3 +46,11 @@ def predict(noOfEvs: int = Form(...)):  # input is from forms
     return {
         "Output": output  # returning a dictionary as endpoint
     }
+
+@app.get('/api', response_class=HTMLResponse)  # data input by forms
+def take_inp():
+    return '''<form method="post"> 
+    <input type="number" name="noOfEvs" value="20"/>  
+    <input type="submit"/> 
+    </form>'''
+   
